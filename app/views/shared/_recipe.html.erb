@@ -1,7 +1,7 @@
 <div class="recipe-div">
     <div>
-        <h3><%= recipe.name %> </h3>
-        <button> REMOVE </button>
+        <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+        <%= button_to "REMOVE", recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?'} %>
     </div>
     <p>
         <%= recipe.description %><br/>
