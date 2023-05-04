@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.recipe-div {
+    display: flex;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    gap: 20px;
+    
+}
