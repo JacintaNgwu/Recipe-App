@@ -1,0 +1,4 @@
+<%= render "form", recipe: @recipe, user: @recipe.user %>
+<% if flash[:error]%>
+    <%= flash[:error] %>
+<% end %>
