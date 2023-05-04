@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
     root to: 'devise/sessions#new'
   end
+  resources :users, only: [:index, :show]
+  resources :recipes, only: [:index, :show, :new, :create, :destroy]
 end
