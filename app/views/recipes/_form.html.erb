@@ -1,23 +1,26 @@
 <%= form_with model: recipe, local: true do |f| %>
-    <div>
+    <div class="new_recipe_form">
+    <h1>New Recipe</h1>
+    <div class="recipe-field">
         <%= f.label :name %>
         <%= f.text_field :name %>
     </div>
-    <div>
+    <div class="recipe-field">
         <%= f.label :preparation_time %>
         <%= f.time_select :preparation_time %>
     </div>
-    <div>
+    <div class="recipe-field">
         <%= f.label :cooking_time %>
         <%= f.time_select :cooking_time %>
     </div>
-    <div>
+    <div class="recipe-field">
         <%= f.label :description %>
         <%= f.text_area :description %>
     </div>
-    <div>
+    <div class="recipe-field">
         <%= f.label :public %>
         <%= f.check_box :public %>
     </div>
     <%= f.submit "Create Recipe" %>
+    </div>
     <% end %>
