@@ -96,10 +96,6 @@ td {
   background-color: #eee;
 }
 
-tr:nth-child(even) {
-  background-color: white;
-}
-
 .recipe-container {
   display: flex;
   margin-top: 100px;
@@ -152,4 +148,45 @@ tr:nth-child(even) {
 .recipe-field input {
   padding: 10px;
   border-radius: 10px;
+}
+
+.shopping-cont,
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 100px;
+  padding: 50px;
+  border: 2px solid black;
+}
+
+.shopping-title,
+.card-header {
+  text-align: center;
+  margin: 50px;
+  font-size: 40px;
+}
+
+.field-recipe {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.actions-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.s-food-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  width: 45%;
+  margin-bottom: 50px;
 }
