@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     root to: 'devise/sessions#new'
   end
   resources :users, only: [:index, :show]
-  resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
+   resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :shopping_list, only: [:index]
 end
