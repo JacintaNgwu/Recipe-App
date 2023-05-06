@@ -4,12 +4,14 @@
 <div class="s-food-count">
   <span>
     Amount of food items to buy:
-    <span><%= @recipes_foods.present? ? @recipes_foods.length : 0 %></span>
+    <span><%= @recipe_foods.count %>
+    </span>
   </span>
 
   <span>
   Total value of food needed:
-  <span>$<%= (@recipes_foods.present? ? @recipes_foods.map { |r| r.food.unit_price.to_i * r.quantity.to_i }.sum : 0) %></span>
+  <span>$<%= @recipe_foods.includes(:food).map {|r| r.food.unit_price.to_i * r.quantity.to_i }.sum %>
+ </span>
 </span>
 </div>
 
