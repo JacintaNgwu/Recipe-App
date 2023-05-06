@@ -124,7 +124,8 @@ tr:nth-child(even) {
   border: none;
   margin-top: 5px;
 }
-.recipe-remove-btn:hover{
+
+.recipe-remove-btn:hover {
   background-color: #000;
   color: #fff;
 }
@@ -135,9 +136,9 @@ tr:nth-child(even) {
   align-self: center;
   border-radius: 10px;
   border: 1px solid black;
- 
 }
-.recipe-btn:hover{
+
+.recipe-btn:hover {
   background-color: #000;
   color: #fff;
 }
@@ -164,26 +165,31 @@ tr:nth-child(even) {
   padding: 10px;
   border-radius: 10px;
 }
-.recipe-detail-title{
+
+.recipe-detail-title {
   text-align: center;
   margin: 50px 0 70px;
 }
+
 .recipe-detail-container {
-    display: flex;
-    flex-direction: column;
-    padding: 100px;
-    gap: 20px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  gap: 20px;
+  margin: 0 auto;
 }
+
 .recipe-detail {
-    display: flex;
-    justify-content: space-between;
-    gap:50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
 }
+
 .recipe-detail-btns {
   display: flex;
   justify-content: space-between;
 }
+
 .recipe-detail-btns button {
   padding: 10px;
   width: 190px;
@@ -192,7 +198,8 @@ tr:nth-child(even) {
   border: none;
   background-color: lightblue;
 }
-.recipe-detail-btns button:hover{
+
+.recipe-detail-btns button:hover {
   background-color: #000;
   color: #fff;
 }

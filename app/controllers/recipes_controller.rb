@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-
   def index
     @recipes = current_user.recipes.all
     @user = current_user
@@ -33,10 +32,6 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(recipe.id), notice: "The recipe is now #{recipe.public ? 'public' : 'private'}!"
   end
 
-  def update
-    @recipe = Recipe.find(params[:id])
-  end
-
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
@@ -47,7 +42,6 @@ class RecipesController < ApplicationController
       render 'new', notice: 'Something went wrong!'
     end
   end
-
 
   private
 
