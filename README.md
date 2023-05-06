@@ -40,9 +40,6 @@ You can navigate the pages using the Nav Bar. The Nav Bar has routes to differen
 - Public recipes.
 - Shopping lists.
 
-> based on the ERD diagram
-> <img src ="./recipe_erd.png">
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
