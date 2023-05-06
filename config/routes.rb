@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  # root "foods#index"
   resources :foods, only: [:index, :show, :new, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
     root to: 'devise/sessions#new'
   end
   resources :users, only: [:index, :show]
-  resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  resources :public_recipes, only: [:index]
+  resources :recipes, only: [:index, :show, :new, :create, :update, :destroy]
 end

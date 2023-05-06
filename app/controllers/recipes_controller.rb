@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
+
   def index
-    @recipes = Recipe.includes(:user).where(user_id: current_user.id)
+    @recipes = current_user.recipes.all
     @user = current_user
   end
 
@@ -17,7 +18,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(post_params)
     @recipe.user = current_user
     if @recipe.save
-      flash.now[:success] = 'Post successfully created'
+      flash.now[:success] = 'Recipe successfully created'
       redirect_to recipes_path(current_user, @recipe)
     else
       flash[:error] = 'Error: Recipe not created'
@@ -25,11 +26,28 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    recipe = Recipe.find(params[:id])
+    recipe.update(public: !recipe.public)
+
+    redirect_to recipe_path(recipe.id), notice: "The recipe is now #{recipe.public ? 'public' : 'private'}!"
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path, notice: 'Recipe deleted'
+
+    if @recipe&.destroy
+      redirect_to recipes_path, notice: 'Recipe successfully deleted!'
+    else
+      render 'new', notice: 'Something went wrong!'
+    end
   end
+
 
   private
 
