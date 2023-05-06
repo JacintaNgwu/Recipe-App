@@ -1,0 +1,58 @@
+<h1 class="recipe-detail-title"><%= @recipe.name %></h1>
+<div class="recipe-detail-container">
+    <div class="recipe-detail">
+        <p>Preparation time: <%= @recipe.preparation_time %></p>
+        <div class="public-status-div">
+        Status:
+        <% if @recipe.public %>
+        <span>Public</span>
+        <% else %>
+          <span >Private</span>
+      <% end %>
+      <%= button_to "Make it #{@recipe.public ? 'private' : 'public'}", recipe_path(@recipe.id), class: "recipe-btn", method: :patch %>
+      <label class="switch mt-4">
+      <input type="checkbox",recipe_path(@recipe.id), method: :patch>
+  <span class="slider round"></span>
+</label>
+      </div>
+    </div>
+    <p>cooking time: <%= @recipe.cooking_time %></p>
+    <p>Steps go here</p>
+   
+    <div class="recipe-detail-btns">
+        <%= link_to "Generate Shopping List", shopping_list_index_path, class: "recipe-det-link"%>
+        <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "recipe-det-link"%>
+    </div>
+    <hr/>
+
+    <div>
+     
+        <table class="recipe-foods-table">
+        <thead>
+        <tr class="h-10">
+              <th class="p-1">Food</th>
+              <th class="p-1">Quanity</th>
+              <th class="p-1">Price</th>
+              <th class="p-1">Value</th>
+              <th class="table-header-title">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @ingridients.each do |ingredient| %>
+              <tr class="h-10">
+                <td class="p-1"><%= ingredient.food.name %></td>
+                <td class="p-1"><%= ingredient.quantity %> <%= ingredient.food.measurement_unit %></td>
+                <td class="p-1">$<%= ingredient.food.unit_price %></td>
+                <td class="p-1">$<%= ingredient.food.unit_price * ingredient.quantity || 0 %></td>
+                <td class="actions-col">
+                  <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: ingredient.id), class: 'recipe-det-link' if can? :manage, @recipe %>
+                  <%= button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: ingredient.id), method: :delete, class: 'recipe-btn' if can? :manage, @recipe%>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+ 
+    </div>
+   
+</div>

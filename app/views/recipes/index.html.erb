@@ -1,0 +1,6 @@
+<div class="recipe-container">
+    <% @recipes.each do |recipe| %>
+        <%= render 'shared/recipe', recipe: recipe %>
+    <% end %>
+     <%= link_to "ADD RECIPE", new_recipe_path, class: "recipe-btn" %>
+</div>
