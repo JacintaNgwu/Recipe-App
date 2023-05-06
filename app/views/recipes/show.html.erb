@@ -5,15 +5,15 @@
         <div class="public-status-div">
         Status:
         <% if @recipe.public %>
-        <span class="badge text-bg-warning p-2 px-4">Public</span>
+        <span>Public</span>
         <% else %>
-          <span class="badge text-bg-secondary p-2 px-4">Private</span>
+          <span >Private</span>
       <% end %>
-      <%= button_to "Make it #{@recipe.public ? 'private' : 'public'}", recipe_path(@recipe.id), method: :patch, class: "recipe-btn" %>
-      <label class="switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
+      <%= button_to "Make it #{@recipe.public ? 'private' : 'public'}", recipe_path(@recipe.id), class: "recipe-btn", method: :patch %>
+      <label class="switch mt-4">
+      <input type="checkbox",recipe_path(@recipe.id), method: :patch>
+  <span class="slider round"></span>
+</label>
       </div>
     </div>
     <p>cooking time: <%= @recipe.cooking_time %></p>
